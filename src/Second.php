@@ -4,6 +4,8 @@
 namespace LST;
 
 
+use InvalidArgumentException;
+
 class Second
 {
     private float $terrestrialConversionRate = 0.9843529666671;
@@ -18,6 +20,8 @@ class Second
      */
     public function __construct(int $seconds)
     {
+        if($seconds < 0 || $seconds > 60)
+            throw new InvalidArgumentException('second is out of range');
         $this->value = $seconds;
     }
 

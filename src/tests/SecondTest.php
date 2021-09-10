@@ -4,11 +4,23 @@
 namespace LST\tests;
 
 
+use InvalidArgumentException;
 use LST\Second;
 use PHPUnit\Framework\TestCase;
 
 class SecondTest extends TestCase
 {
+    public function testNegativeSecondExceptionWillBeThrown()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        new Second(-1);
+    }
+
+    public function test61SecondsExceptionWillBeThrown()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        new Second(61);
+    }
     public function testConversionOfZeroLunarSecondToTerrestrial()
     {
         $second = new Second(0);
