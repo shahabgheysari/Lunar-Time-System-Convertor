@@ -7,12 +7,6 @@ use PHPUnit\Framework\TestCase;
 class InitialValuesTest extends TestCase
 {
 
-    public function testInitialYear()
-    {
-        $lstCalendar = new LSTCalendar();
-        self::assertEquals(1,$lstCalendar->getInitialYear());
-    }
-
     public function testInitialDay()
     {
         $lstCalendar = new LSTCalendar();

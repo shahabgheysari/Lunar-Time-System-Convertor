@@ -6,24 +6,24 @@ namespace LST;
 
 class LSTCalendar
 {
-    public $initialYear = 1;
+    public $initialYear;
     public $initialDay = 1;
     public $initialCycle = 1;
     public $initialHour = 0;
     public $initialMinute = 0;
     public $initialSecond = 0;
 
-    public function getInitialDate()
+    /**
+     * LSTCalendar constructor.
+     */
+    public function __construct()
     {
-        return "{$this->initialYear}-{$this->initialDay}-{$this->initialCycle} {$this->initialHour}:{$this->initialMinute}:{$this->initialSecond}";
+        $this->initialYear = new Year();
     }
 
-    /**
-     * @return int
-     */
-    public function getInitialYear(): int
+    public function getInitialDate()
     {
-        return $this->initialYear;
+        return "{$this->initialYear->getInitialYear()}-{$this->initialDay}-{$this->initialCycle} {$this->initialHour}:{$this->initialMinute}:{$this->initialSecond}";
     }
 
     /**
@@ -68,7 +68,7 @@ class LSTCalendar
 
     public function formattedInitialDate()
     {
-        return "{$this->initialYear}-0{$this->initialDay}-0{$this->initialCycle} " .
+        return "{$this->initialYear->getInitialYear()}-0{$this->initialDay}-0{$this->initialCycle} " .
             "0{$this->initialHour}:0{$this->initialMinute}:0{$this->initialSecond}";
 
     }
