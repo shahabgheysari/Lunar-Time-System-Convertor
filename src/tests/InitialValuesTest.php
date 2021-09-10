@@ -4,7 +4,7 @@
 use LST\LSTCalendar;
 use PHPUnit\Framework\TestCase;
 
-class initialValuesTest extends TestCase
+class InitialValuesTest extends TestCase
 {
 
     public function testInitialYear()
