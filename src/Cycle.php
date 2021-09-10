@@ -30,6 +30,6 @@ class Cycle
 
     public function toTerrestrialSeconds()
     {
-        return (new Hour($this->value * 24))->toTerrestrialSeconds();
+        return (new Hour(24))->toTerrestrialSeconds() * $this->value;
     }
 }

@@ -11,13 +11,13 @@ use PHPUnit\Framework\TestCase;
 class CycleTest extends TestCase
 {
 
-    public function testZeroCycleIsExceptionWillBeThrown()
+    public function testZeroCycleExceptionWillBeThrown()
     {
         $this->expectException(InvalidArgumentException::class);
         new Cycle(0);
     }
 
-    public function test31CycleIsExceptionWillBeThrown()
+    public function test31CyclesExceptionWillBeThrown()
     {
         $this->expectException(InvalidArgumentException::class);
         new Cycle(31);
@@ -41,9 +41,9 @@ class CycleTest extends TestCase
         $this->assertEquals(170096.19264007488,$twoCycles->toTerrestrialSeconds());
     }
 
-    public function testTwentyNineCyclesToTerrestrialSeconds()
+    public function testThirtyCyclesToTerrestrialSeconds()
     {
-        $TwentyNineCycles = new Cycle(29);
-        $this->assertEquals(2466394.79328108576,$TwentyNineCycles->toTerrestrialSeconds());
+        $thirtyCycles = new Cycle(30);
+        $this->assertEquals(2551442.8896011232,$thirtyCycles->toTerrestrialSeconds());
     }
 }
