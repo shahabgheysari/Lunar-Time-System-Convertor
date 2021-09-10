@@ -4,12 +4,24 @@
 namespace LST\tests;
 
 
+use InvalidArgumentException;
 use LST\Minute;
-use LST\Second;
 use PHPUnit\Framework\TestCase;
 
 class MinuteTest extends TestCase
 {
+    public function testZeroMinuteExceptionWillBeThrown()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        new Minute(-1);
+    }
+
+    public function test61MinutesExceptionWillBeThrown()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        new Minute(61);
+    }
+
     public function testOneMinuteToTerrestrialSeconds()
     {
         $oneMinute = new Minute(1);
@@ -19,13 +31,13 @@ class MinuteTest extends TestCase
     public function testTwoMinutesToTerrestrialSeconds()
     {
         $twoMinutes = new Minute(2);
-        $this->assertEquals((new Second(120))->toTerrestrial(),$twoMinutes->toTerrestrialSeconds());
+        $this->assertEquals(118.122356000052,$twoMinutes->toTerrestrialSeconds());
     }
 
-    public function testOneHundredMinutesToTerrestrialSeconds()
+    public function testSixtyMinutesToTerrestrialSeconds()
     {
-        $oneHundredMinutes = new Minute(100);
-        $this->assertEquals(5906.1178000026,$oneHundredMinutes->toTerrestrialSeconds());
+        $sixtyMinutes = new Minute(60);
+        $this->assertEquals(3543.67068000156,$sixtyMinutes->toTerrestrialSeconds());
     }
 
 }
