@@ -65,4 +65,11 @@ class LSTCalendar
     {
         return $this->initialSecond;
     }
+
+    public function formattedInitialDate()
+    {
+        return "{$this->initialYear}-0{$this->initialDay}-0{$this->initialCycle} " .
+            "0{$this->initialHour}:0{$this->initialMinute}:0{$this->initialSecond}";
+
+    }
 }

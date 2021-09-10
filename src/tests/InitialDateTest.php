@@ -14,4 +14,10 @@ class InitialDateTest extends TestCase
         $lstCalendar = new LSTCalendar();
         self::assertEquals('1-1-1 0:0:0',$lstCalendar->getInitialDate());
     }
+
+    public function testFormattedInitialDate()
+    {
+        $lstCalendar = new LSTCalendar();
+        self::assertEquals('1-01-01 00:00:00',$lstCalendar->formattedInitialDate());
+    }
 }
