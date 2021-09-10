@@ -6,11 +6,11 @@ namespace LST;
 
 class Second
 {
-    private $terrestrialConversionRate = 0.9843529666671;
+    private float $terrestrialConversionRate = 0.9843529666671;
     /**
      * @var int
      */
-    private $value;
+    private int $value;
 
     /**
      * Second constructor.
@@ -21,7 +21,7 @@ class Second
         $this->value = $seconds;
     }
 
-    public function getTerrestrial()
+    public function toTerrestrial()
     {
         return round($this->terrestrialConversionRate * $this->value,13);
     }
