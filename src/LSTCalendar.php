@@ -19,7 +19,7 @@ class LSTCalendar
     public function __construct()
     {
         $this->initialYear = new Year();
-        $this->initialDay = new Day();
+        $this->initialDay = new Day(1);
         $this->initialCycle = new Cycle(1);
     }
 
