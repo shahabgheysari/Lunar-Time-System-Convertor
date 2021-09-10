@@ -17,4 +17,52 @@ class LSTCalendar
     {
         return "{$this->initialYear}-{$this->initialDay}-{$this->initialCycle} {$this->initialHour}:{$this->initialMinute}:{$this->initialSecond}";
     }
+
+    /**
+     * @return int
+     */
+    public function getInitialYear(): int
+    {
+        return $this->initialYear;
+    }
+
+    /**
+     * @return int
+     */
+    public function getInitialDay(): int
+    {
+        return $this->initialDay;
+    }
+
+    /**
+     * @return int
+     */
+    public function getInitialCycle(): int
+    {
+        return $this->initialCycle;
+    }
+
+    /**
+     * @return int
+     */
+    public function getInitialHour(): int
+    {
+        return $this->initialHour;
+    }
+
+    /**
+     * @return int
+     */
+    public function getInitialMinute(): int
+    {
+        return $this->initialMinute;
+    }
+
+    /**
+     * @return int
+     */
+    public function getInitialSecond(): int
+    {
+        return $this->initialSecond;
+    }
 }
