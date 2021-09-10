@@ -6,13 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 class InitialValuesTest extends TestCase
 {
-
-    public function testInitialDay()
-    {
-        $lstCalendar = new LSTCalendar();
-        self::assertEquals(1,$lstCalendar->getInitialDay());
-    }
-
     public function testInitialCycle()
     {
         $lstCalendar = new LSTCalendar();
