@@ -20,7 +20,7 @@ class LSTCalendar
     {
         $this->initialYear = new Year();
         $this->initialDay = new Day();
-        $this->initialCycle = new Cycle();
+        $this->initialCycle = new Cycle(1);
     }
 
     public function getInitialDate()
