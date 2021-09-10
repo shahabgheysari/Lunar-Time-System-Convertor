@@ -20,11 +20,12 @@ class LSTCalendar
     {
         $this->initialYear = new Year();
         $this->initialDay = new Day();
+        $this->initialCycle = new Cycle();
     }
 
     public function getInitialDate()
     {
-        return "{$this->initialYear->getInitialYear()}-{$this->initialDay->getInitialDay()}-{$this->initialCycle} {$this->initialHour}:{$this->initialMinute}:{$this->initialSecond}";
+        return "{$this->initialYear->getInitialYear()}-{$this->initialDay->getInitialDay()}-{$this->initialCycle->getInitialCycle()} {$this->initialHour}:{$this->initialMinute}:{$this->initialSecond}";
     }
 
     /**
@@ -61,7 +62,7 @@ class LSTCalendar
 
     public function formattedInitialDate()
     {
-        return "{$this->initialYear->getInitialYear()}-0{$this->initialDay->getInitialDay()}-0{$this->initialCycle} " .
+        return "{$this->initialYear->getInitialYear()}-0{$this->initialDay->getInitialDay()}-0{$this->initialCycle->getInitialCycle()} " .
             "0{$this->initialHour}:0{$this->initialMinute}:0{$this->initialSecond}";
 
     }
