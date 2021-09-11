@@ -6,12 +6,12 @@ namespace LST;
 
 class LSTCalendar
 {
-    public $initialYear;
-    public $initialDay = 1;
-    public $initialCycle = 1;
-    public $initialHour = 0;
-    public $initialMinute = 0;
-    public $initialSecond = 0;
+    public Year $initialYear;
+    public  Day $initialDay;
+    public Cycle $initialCycle;
+    public int $initialHour = 0;
+    public int $initialMinute = 0;
+    public int $initialSecond = 0;
 
     /**
      * LSTCalendar constructor.
