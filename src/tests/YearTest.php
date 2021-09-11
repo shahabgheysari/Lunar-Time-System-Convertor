@@ -11,7 +11,7 @@ class YearTest extends TestCase
 {
     public function testInitialYear()
     {
-        $year = new Year();
+        $year = new Year(1);
         $this->assertEquals(1,$year->getInitialYear());
     }
 }
