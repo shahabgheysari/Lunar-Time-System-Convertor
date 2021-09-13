@@ -46,4 +46,17 @@ class HourTest extends TestCase
         $this->assertEquals(70873.4136000312,$twentyHours->toTerrestrialSeconds());
     }
 
+
+    public function testFormattedWithLeadingZero()
+    {
+        $hour = new Hour(2);
+        $this->assertEquals('02',$hour->getFormatted());
+    }
+
+    public function testFormattedWithoutLeadingZero()
+    {
+        $hour = new Hour(12);
+        $this->assertEquals('12',$hour->getFormatted());
+    }
+
 }

@@ -31,4 +31,17 @@ class DayTest extends TestCase
         $oneDay = new Day(2);
         $this->assertEquals(5102885.7792022464,$oneDay->toTerrestrialSeconds());
     }
+
+
+    public function testFormattedWithLeadingZero()
+    {
+        $day = new Day(2);
+        $this->assertEquals('02',$day->getFormatted());
+    }
+
+    public function testFormattedWithoutLeadingZero()
+    {
+        $day = new Day(12);
+        $this->assertEquals('12',$day->getFormatted());
+    }
 }

@@ -9,7 +9,7 @@ use InvalidArgumentException;
 class Day
 {
 
-    private $initialDay = 1;
+    private static $initialDay = 1;
     private int $value;
 
     /**
@@ -23,13 +23,18 @@ class Day
         $this->value = $days;
     }
 
-    public function getInitialDay()
+    public static function getInitialDay()
     {
-        return $this->initialDay;
+        return self::$initialDay;
     }
 
     public function toTerrestrialSeconds()
     {
         return (new Cycle(30))->toTerrestrialSeconds() * $this->value;
+    }
+
+    public function getFormatted()
+    {
+        return sprintf("%'.02d", $this->value);
     }
 }

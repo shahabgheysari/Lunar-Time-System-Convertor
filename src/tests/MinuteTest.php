@@ -40,4 +40,16 @@ class MinuteTest extends TestCase
         $this->assertEquals(3543.67068000156,$sixtyMinutes->toTerrestrialSeconds());
     }
 
+
+    public function testFormattedWithLeadingZero()
+    {
+        $minute = new Minute(2);
+        $this->assertEquals('02',$minute->getFormatted());
+    }
+
+    public function testFormattedWithoutLeadingZero()
+    {
+        $minute = new Minute(12);
+        $this->assertEquals('12',$minute->getFormatted());
+    }
 }

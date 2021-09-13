@@ -26,5 +26,10 @@ class Hour
         return (new Minute(60))->toTerrestrialSeconds() * $this->value;
     }
 
+    public function getFormatted()
+    {
+        return sprintf("%'.02d", $this->value);
+    }
+
 
 }

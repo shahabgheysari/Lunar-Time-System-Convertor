@@ -29,4 +29,9 @@ class Second
     {
         return round($this->terrestrialConversionRate * $this->value,13);
     }
+
+    public function getFormatted()
+    {
+        return sprintf("%'.02d", $this->value);
+    }
 }

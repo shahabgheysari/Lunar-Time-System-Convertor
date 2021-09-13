@@ -25,4 +25,9 @@ class Minute
     {
         return (new Second(60))->toTerrestrial() * $this->value;
     }
+
+    public function getFormatted()
+    {
+        return sprintf("%'.02d", $this->value);
+    }
 }

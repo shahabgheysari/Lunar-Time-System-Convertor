@@ -6,7 +6,7 @@ namespace LST;
 
 class Year
 {
-    private int $initialYear = 1;
+    private static int $initialYear = 1;
     private int $value;
 
     /**
@@ -18,14 +18,19 @@ class Year
         $this->value = $years;
     }
 
-    public function getInitialYear()
+    public static function getInitialYear()
     {
-        return $this->initialYear;
+        return self::$initialYear;
     }
 
     public function toTerrestrialSeconds()
     {
         return (new Day(12))->toTerrestrialSeconds() * $this->value;
+    }
+
+    public function getValue()
+    {
+        return $this->value;
     }
 
 }

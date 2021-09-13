@@ -46,4 +46,16 @@ class CycleTest extends TestCase
         $thirtyCycles = new Cycle(30);
         $this->assertEquals(2551442.8896011232,$thirtyCycles->toTerrestrialSeconds());
     }
+
+    public function testFormattedWithLeadingZero()
+    {
+        $cycle = new Cycle(2);
+        $this->assertEquals('02',$cycle->getFormatted());
+    }
+
+    public function testFormattedWithoutLeadingZero()
+    {
+        $cycle = new Cycle(12);
+        $this->assertEquals('12',$cycle->getFormatted());
+    }
 }

@@ -44,5 +44,15 @@ class SecondTest extends TestCase
         $second = new Second(5);
         $this->assertEquals(4.9217648333355,$second->toTerrestrial());
     }
+    public function testFormattedWithLeadingZero()
+    {
+        $second = new Second(2);
+        $this->assertEquals('02',$second->getFormatted());
+    }
 
+    public function testFormattedWithoutLeadingZero()
+    {
+        $second = new Second(12);
+        $this->assertEquals('12',$second->getFormatted());
+    }
 }
