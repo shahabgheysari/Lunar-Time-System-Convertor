@@ -14,5 +14,6 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return 'Vestiaire-Collective Convertor';
 });
+$router->post('/convert',"LSTController@convert");
