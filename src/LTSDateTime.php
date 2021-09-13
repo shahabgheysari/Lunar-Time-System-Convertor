@@ -19,6 +19,7 @@ class LTSDateTime
     private Minute $minute;
     private Second $second;
 
+    private string $sign = "▽";
     /**
      * LTSDateTime constructor.
      * @param int $year
@@ -40,7 +41,7 @@ class LTSDateTime
 
     public function getFormatted()
     {
-        return "{$this->formatDate()} {$this->formatTime()}";
+        return "{$this->formatDate()}{$this->getSign()}{$this->formatTime()}";
     }
 
     private function formatDate()
@@ -52,4 +53,14 @@ class LTSDateTime
     {
         return "{$this->hour->getFormatted()}:{$this->minute->getFormatted()}:{$this->second->getFormatted()}";
     }
+
+    /**
+     * @return string
+     */
+    private function getSign(): string
+    {
+        return $this->sign;
+    }
+
+
 }
