@@ -41,6 +41,6 @@ class LSTConvertor
 
         $second = (int) ($seconds / (new Second(1))->toTerrestrial());
 
-        return $year.'-'.$day.'-'.$cycle.' '.$hour.':'.$minute.':'.$second;
+        return new LTSDateTime($year+Year::getInitialYear(),$day+Day::getInitialDay(),$cycle+Cycle::getInitialCycle(),$hour,$minute,$second);
     }
 }
