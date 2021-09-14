@@ -6,9 +6,9 @@ namespace App\Services;
 
 use DateInterval;
 use DateTime;
-use Exception;
 use InvalidArgumentException;
 use LST\LSTConvertorService;
+use Throwable;
 
 class LSTService
 {
@@ -35,14 +35,16 @@ class LSTService
             $dateTime = new DateTime($dateTime);
             if (isset($dateTime)) $dateTime->add(new DateInterval('P4D'));
             return $this->LSTConvertorService->convertUTCtoLST($dateTime->format('Y-m-d H:i:s'));
-        } catch (Exception $e) {
-            throw new InvalidArgumentException($e->getMessage());
+        } catch (Throwable $e) {
+            throw new InvalidArgumentException('conversion exception!!!');
         }
     }
 
     private function validateDateTime(string $dateTime)
     {
-        if (empty(trim($dateTime)) || !preg_match("/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9])$/",$dateTime))
+        if (empty(trim($dateTime)) || !preg_match("/^\d\d\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/",$dateTime)) {
             throw new InvalidArgumentException('incorrect date time format.');
+        }
+        return true;
     }
 }

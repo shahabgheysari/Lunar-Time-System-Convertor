@@ -35,7 +35,7 @@ class LSTController extends Controller
             $data = $this->LSTService->convertUTCDateTime($request->input('dateTime'));
         }catch (Throwable $exception){
             $statusCode = 400;
-            $message = 'incorrect date time, correct format = yyyy-mm-dd hh:mm:ss';
+            $message = 'check your input, correct format = yyyy-mm-dd hh:mm:ss and it should be greater than 1969-07-21 02:56:15!!';
         }
 
         return $this->jsonResponse([
@@ -46,7 +46,10 @@ class LSTController extends Controller
 
     private function validateDateTime(string $dateTime)
     {
-        if (empty(trim($dateTime)) || !preg_match("/^\d\d\d\d-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01]) (00|[0-9]|1[0-9]|2[0-3]):([0-9]|[0-5][0-9]):([0-9]|[0-5][0-9])$/",$dateTime))
+
+        if (empty(trim($dateTime)) || !preg_match("/^\d\d\d\d-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]) (00|0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $dateTime)) {
             throw new InvalidArgumentException('incorrect date time format.');
+        }
+        return true;
     }
 }
