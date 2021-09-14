@@ -6,6 +6,7 @@ namespace App\Services;
 
 use DateInterval;
 use DateTime;
+use Exception;
 use InvalidArgumentException;
 use LST\LSTConvertorService;
 use Throwable;
@@ -36,7 +37,7 @@ class LSTService
             if (isset($dateTime)) $dateTime->add(new DateInterval('P4D'));
             return $this->LSTConvertorService->convertUTCtoLST($dateTime->format('Y-m-d H:i:s'));
         } catch (Throwable $e) {
-            throw new InvalidArgumentException('conversion exception!!!');
+            throw new Exception('conversion exception!!!');
         }
     }
 
